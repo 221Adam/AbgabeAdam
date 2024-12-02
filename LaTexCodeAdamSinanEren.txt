@@ -65,7 +65,7 @@ Unsere Analyse begann mit dem Import des Datensatzes in eine Tabellenkalkulation
 
 \newpage
 
-Nach dem Filtern und Ordnen haben wir den höchsten Wert der mittleren Temperatur mithilfe der Excel-Funktion \texttt{=MAX(J2232:J22596)} berechnet. Das Ergebnis zeigte, dass die höchste mittlere Temperatur im Datensatz \textbf{83°F} beträgt. Da wir nun Fahrenheit in Celsius umrechnen müssen, nutzen wir die Formel $$T_C=\frac{5}{9}*(T_F-32$$. Das Ergebnis ist dann \textbf{28,33 Grad Celsius}
+Nach dem Filtern und Ordnen haben wir den höchsten Wert der mittleren Temperatur mithilfe der Excel-Funktion \texttt{=MAX(J2232:J22596)} berechnet. Das Ergebnis zeigte, dass die höchste mittlere Temperatur im Datensatz \textbf{83°F} beträgt. Da wir nun Fahrenheit in Celsius umrechnen müssen, nutzen wir die Formel $$T_C=\frac{5}{9}*(T_F-32)$$. Das Ergebnis ist dann \textbf{28,33 Grad Celsius}
 
 \begin{figure}[h]
     \centering
