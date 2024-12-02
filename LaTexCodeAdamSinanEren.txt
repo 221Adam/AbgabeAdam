@@ -8,7 +8,7 @@
 
 
 \title{Abgabe}
-\author{Adam Djabrailov [4349521], Eren, Sinan Yilmaz [4358904]}
+\author{Adam Djabrailov [4349521], Eren Askin [4361269], Sinan Yilmaz [4358904]}
 \date{November 2024}
 
 \begin{document}
