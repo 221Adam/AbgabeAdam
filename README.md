@@ -1,0 +1,225 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[ngerman]{babel} 
+\usepackage{amsfonts} 
+
+
+\title{Abgabe}
+\author{Adam Djabrailov [4349521], Eren, Sinan Yilmaz [4358904]}
+\date{November 2024}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Der zentrale Grenzwertsatz}
+
+    Der zentrale Grenzwertsatz (ZGS) ist ein fundamentales Resultat der Wahrscheinlichkeitstheorie, das die Verteilung von Summe unabhängiger, identisch verteilter ($i.i.d$) Zufallsvariablen (ZV) beschreibt. Er besagt, dass unter bestimmten Voraussetzungen die Summe einer großen Anzahl solcher ZV annähernd normalverteilt ist, unabhängig von der Verteilung der einzelnen ZV. Dies ist besonders nützlich, da die Normalverteilung gut untersucht und mathematisch handhabbar ist.
+
+\subsection{Aussage}
+    Sei $X_1,X_2,...,X_n$ eine Folge von $i.i.d$ ZV mit dem Erwartungswert $\mu =\mathbb{E}(X_i)$ und der Varianz  $ \sigma^2 = Var(X_i)$, wobei $0 <  \sigma^2 < \infty$ gelte. Dann konvergiert die standardisierte Summe $Z_n$ dieser ZV für $n\xrightarrow[]{}\infty$ in Verteilung gegen eine Standardnormalverteilung:\footnote{Der zentrale Grenzwertsatz hat verschiedene Verallgemeinerungen. Eine davon ist der \textbf{Lindeberg-Feller-Zentrale-Grenzwertsatz }(\cite{Wahrscheinlichkeitstheorie}, Seite 328), der schwächere Bedingungen an die Unabhängigkeit und die identische Verteilung der ZV stellt}
+    
+    \begin{equation}
+        \label{eq:Standardnormalverteilung}
+        Z_n=\frac{\sum\nolimits_{i=1}^n{X_i-n\mu}}{\sigma\sqrt{n}}\xrightarrow{d}N(0,1).
+    \end{equation}
+    
+    Das bedeutet, dass für große $n$ die Summe der ZV näherungsweise normalverteilt ist mit dem Erwartungswert $n\mu$ und die Varianz $n\sigma^2$:
+
+    \begin{equation}
+        \label{eq:Normalverteilt}
+        \sum_{i=1}^nX_i\sim N(n\mu,n\sigma^2).
+    \end{equation}
+
+\subsection{Erklärung der Standardisierung}
+    Um die Summe der ZV in eine Standardnormalverteilung zu transformieren, subtrahiert man den Erwartungswert $n\mu$ und teilt durch die Standardabweichung $\sigma\sqrt{n}$. Dies führt zu der obigen Formel \eqref{eq:Standardnormalverteilung}. Die Darstellung \eqref{eq:Normalverteilt} ist für $n\xrightarrow{}\infty$ nicht wohldefiniert.
+
+\subsection{Anwendungen}
+
+    Der ZGS wird in vielen Bereichen der Statistik und der Wahrscheinlichkeitstheorie angewendet. Typische Beispiele sind:
+    \begin{itemize}
+    \item Bei der Messung von verschiedenen Eigentschaften einer Population. Beispielsweise Gewicht, Gehalt, Größe.
+    \item Bei Maschinen, die getestet werden. Mithilfe dem ZGWS kann man überprüfen, ob die Zufallswerte bedingt sind und die Maschine möglicherweise kaputt ist.
+    \end{itemize}
+
+\newpage
+
+\section{Bearbeitung zur Aufgabe 1}
+
+\subsection{Datenverarbeitung}
+Unsere Analyse begann mit dem Import des Datensatzes in eine Tabellenkalkulation von Excel. Daraufhin ordneten und filterten wir nach unserem gruppenspezifischen Datensatz. Dieser enthielt verschiedene Spalten, darunter das Datum, die Verleihstation oder die Anzahl der Verleihvorgänge. Die Aufgabe fordert die Berechnung der höchsten mittleren Temperatur, was man mit einer Tabellenkalkulation lösen kann.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.2\linewidth]{Abbildung1.PNG}
+    \caption{Gefilterte Daten}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+Nach dem Filtern und Ordnen haben wir den höchsten Wert der mittleren Temperatur mithilfe der Excel-Funktion \texttt{=MAX(J2232:J22596)} berechnet. Das Ergebnis zeigte, dass die höchste mittlere Temperatur im Datensatz \textbf{83°F} beträgt. Da wir nun Fahrenheit in Celsius umrechnen müssen, nutzen wir die Formel $$T_C=\frac{5}{9}*(T_F-32$$. Das Ergebnis ist dann \textbf{28,33 Grad Celsius}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.3\linewidth]{Abbildung2.PNG}
+    \caption{Werte}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{Datenbank-Schema}
+
+    Wir haben vorerst nur ein Schema in Excel entworfen wie die Tabelle in der ersten und zweiten Normalform aussehen sollte und haben diese Form dann in der nächsten Aufgabe übertragen auf SQL. Die erste Normalform erfordert, dass alle Werte atomar sind. Die zweite Normalform erfordert, dass die erste Normalform erfüllt ist und jedes Nichtschlüssel-Attribut nur vom Primärschlüssel abhängig, nicht aber von einer Teilmenge desselben. Man könnte das Schema hier in LaTex erstellen, doch es effizienter das in Excel zu lösen.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.2\linewidth]{Abbildung3.PNG}
+        \caption{Erste Normalform}
+        \label{fig:enter-label}
+    \end{figure}
+
+\newpage
+
+Die erste Tabelle war schon in der ersten Normal form. Nun folgt die zweite Normalform.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\linewidth]{AbbildungStation.PNG}
+        \caption{Tabelle Station}
+        \label{fig:enter-label}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.2\linewidth]{AbbildungDate.PNG}
+        \caption{Tabelle Date}
+        \label{fig:enter-label}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\linewidth]{AbbildungVerleih.PNG}
+        \caption{Tabelle Verleih}
+        \label{fig:enter-label}
+    \end{figure}
+
+\newpage
+
+\subsection{SQL (DDL)}
+
+Für diese Aufgabe haben wir sqlite3 benutzt, was man bei der Website von SQL installieren kann \cite{sqlite}. Mit folgenden Befehlen haben wir die Tabellen entworfen (übrigens haben wir die Werte der Gruppe weggelassen, da wir die gefilterten Daten nutzen und der Gruppenwert überflüssig wird). Zudem musste man auch die csv Daten importieren. Wir hatten insgesamt 4 verschiedene csv Daten für den Import in die SQL Datenbankschemen.
+
+\begin{enumerate}
+    \item Bei der ersten csv Datei haben wir nach unserer Gruppe gefiltert, zudem noch die erste und zweite zeile gelöscht, damit man die Datei importieren kann. Gleichzeitig haben wir in SQLite3 das Datenbankschema in der ersten Normalform erstellt und dann noch die Daten eingefügt.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1.2\linewidth]{Gefiltert.PNG}
+        \caption{Daten für Import erste Tabelle}
+        \label{fig:enter-label}
+    \end{figure}
+    
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.9\linewidth]{SQL1.PNG}
+        \caption{Erstellung Tabelle 1NF}
+        \label{fig:enter-label}
+    \end{figure}
+\newpage
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.9\linewidth]{SQL2.PNG}
+        \caption{1NF Tabelle}
+        \label{fig:enter-label}
+    \end{figure}
+
+    \newpage
+
+    \item Bei den restlichen Dateien haben wir die Werte stärker angepasst fürs Importieren und haben die Tabellen in zweiter Normalform erstellt.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\linewidth]{EINFÜGENStation.PNG}
+        \caption{Angepasste Daten}
+        \label{fig:enter-label}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1\linewidth]{SQL3.PNG}
+        \caption{Tabelle Station}
+        \label{fig:enter-label}
+    \end{figure}
+
+\newpage
+
+    \item 
+    Natürlich haben wir die Werte, also die csv Dateien auch importiert in unsere Tabellen.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\linewidth]{TABELLEDate.PNG}
+        \caption{Daten Date}
+        \label{fig:enter-label}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\linewidth]{SQLDate.PNG}
+        \caption{Tabelle Date}
+        \label{fig:enter-label}
+    \end{figure}
+
+    \newpage
+
+    \item   In Abbildung 15 ist nun unsere letzte Tabelle, wo wir die Tabellen miteinander durch die Primär und Fremdschlüssel verbunden haben.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.4\linewidth]{TABELLEVerleih.PNG}
+        \caption{Daten Verleih}
+        \label{fig:enter-label}
+    \end{figure}
+
+
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\linewidth]{SQLVerleih.PNG}
+        \caption{Tabelle Verleih}
+        \label{fig:enter-label}
+    \end{figure}
+\end{enumerate}
+
+\newpage
+
+\subsection{Abfrage in SQL}
+
+    Mit den Befehlen SELECT, WHERE und FROM konnte wir uns eine Abfrage in SQL ermöglichen, womit wir verschiedenste Werte ermittelnt konnten. In unserem Fall mussten wir die höchste mittlere Temperatur herausfinden, weswegen wir folgenden Code in Abbildung 16 und 17 benutzt haben. Einmal für Fahrrenheit und einmal für Celsius.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\linewidth]{ABFRAGE.PNG}
+        \caption{Abfrage Fahrrenheit}
+        \label{fig:enter-label}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\linewidth]{SQLABFRAGE2.PNG}
+        \caption{Abfrage Celsius}
+        \label{fig:enter-label}
+    \end{figure}
+
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{Referenzen}
+
+\end{document}
