@@ -9,7 +9,7 @@
 
 \title{Abgabe}
 \author{Adam Djabrailov [4349521], Eren Askin [4361269], Sinan Yilmaz [4358904]}
-\date{November 2024}
+\date{2. Dezember 2024}
 
 \begin{document}
 
